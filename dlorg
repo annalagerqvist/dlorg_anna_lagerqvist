@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-for file in ~/Downloads/*; do
+D="/home/annalage/Downloads"
+
+for file in $D/*; do
     case "$file" in
-    *.zip|*.rar) mv $file ~/Downloads/Archives;; 
-    *.doc|*.docx|*.odt|*.rtf|*.txt|*.md) mv $file ~/Downloads/Documents;;
-    *.ppt|*.pptx|*.odp) mv $file ~/Downloads/Documents;;
-    *.xls|*.xlsx|*.ods|*.csv) mv $file ~/Downloads/Spreadsheets;;
-    *.mp4|*.mkv|*.avi|*.mov|*.wmv) mv $file ~/Downloads/Videos;;
-    *.mp3|*.wav|*.wma) mv $file ~/Downloads/Music;;
-    *.jpg|*.jpeg|*.bmp|*.png|*.gif|*.webp) mv $file ~/Downloads/Pictures;;
-    *.exe|*.msi|*.dmg|*.rpm) mv $file ~/Downloads/Programs;;
+    *.zip|*.rar) mkdir -p "$D/Archives" && mv "$file" "$D/Archives";; 
+    *.doc|*.docx|*.odt|*.rtf|*.txt|*.md) mkdir -p "$D/Documents" && mv "$file" "$D/Documents";;
+    *.ppt|*.pptx|*.odp) mkdir -p "$D/Presentations" && mv "$file" "$D/Presentations";;
+    *.xls|*.xlsx|*.ods|*.csv) mkdir -p "$D/Spreadsheets" && mv "$file" "$D/Spreadsheets";;
+    *.mp4|*.mkv|*.avi|*.mov|*.wmv) mkdir -p "$D/Videos" && mv "$file" "$D/Videos";;
+    *.mp3|*.wav|*.wma) mkdir -p "$D/Music" && mv "$file" "$D/Music";;
+    *.jpg|*.jpeg|*.bmp|*.png|*.gif|*.webp) mkdir -p "$D/Pictures" && mv "$file" "$D/Pictures";;
+    *.exe|*.msi|*.dmg|*.rpm) mkdir -p "$D/Programs" && mv "$file" "$D/Programs";;
     esac
  
 done
