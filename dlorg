@@ -4,14 +4,18 @@ D="/home/annalage/Downloads"
 
 for file in $D/*; do
     case "$file" in
-    *.zip|*.rar) mkdir -p "$D/Archives" && mv "$file" "$D/Archives";; 
-    *.doc|*.docx|*.odt|*.rtf|*.txt|*.md) mkdir -p "$D/Documents" && mv "$file" "$D/Documents";;
-    *.ppt|*.pptx|*.odp) mkdir -p "$D/Presentations" && mv "$file" "$D/Presentations";;
-    *.xls|*.xlsx|*.ods|*.csv) mkdir -p "$D/Spreadsheets" && mv "$file" "$D/Spreadsheets";;
-    *.mp4|*.mkv|*.avi|*.mov|*.wmv) mkdir -p "$D/Videos" && mv "$file" "$D/Videos";;
-    *.mp3|*.wav|*.wma) mkdir -p "$D/Music" && mv "$file" "$D/Music";;
-    *.jpg|*.jpeg|*.bmp|*.png|*.gif|*.webp) mkdir -p "$D/Pictures" && mv "$file" "$D/Pictures";;
-    *.exe|*.msi|*.dmg|*.rpm) mkdir -p "$D/Programs" && mv "$file" "$D/Programs";;
+    *.zip|*.rar) folder="Archives";;
+    *.doc|*.docx|*.odt|*.rtf|*.txt|*.md) folder="Documents";;
+    *.ppt|*.pptx|*.odp) folder="Presentations";;
+    *.xls|*.xlsx|*.ods|*.csv) folder="Spreadsheets";;
+    *.mp4|*.mkv|*.avi|*.mov|*.wmv) folder="Videos";;
+    *.mp3|*.wav|*.wma) folder="Music";;
+    *.jpg|*.jpeg|*.bmp|*.png|*.gif|*.webp) folder="Pictures";;
+    *.exe|*.msi|*.dmg|*.rpm) folder="Programs";;
     esac
+
+    if [[ -f "$file" ]]; then
+    mkdir -p "$D/$folder" && mv "$file" "$D/$folder"
+    fi
  
 done
