@@ -2,7 +2,7 @@
 
 D="/home/annalage/Downloads"
 
-for file in $D/*; do
+inotifywait -m -e close_write -e moved_to --format "%w%f" "$D" | while read -r file; do 
     case "$file" in
     *.zip|*.rar) folder="Archives";;
     *.doc|*.docx|*.odt|*.rtf|*.txt|*.md) folder="Documents";;
