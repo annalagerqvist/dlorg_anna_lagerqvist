@@ -1,6 +1,6 @@
 # dlorg_anna_lagerqvist
 
-dlorg monitors the Downloads directory using inotifywait. When a new file is downloaded or moved to the directory, the script identifies its file type and automatically moves it to the corresponding folder, such as Documents, Videos, Music etc.
+dlorg monitors the Downloads directory using inotifywait. It is a service that starts automatically after starting the system and works in the backround. When a new file is downloaded or moved to the directory Downloads, the script identifies its file type and automatically moves it to the corresponding folder, such as Documents, Videos, Music etc. 
 
 ## How to use dlorg
 
@@ -9,7 +9,7 @@ dlorg monitors the Downloads directory using inotifywait. When a new file is dow
 git clone https://github.com/annalagerqvist/dlorg_anna_lagerqvist/
 ```
 
-### 2. Change the path for D directory to your local Downloads directory path
+### 2. Change the value of the "D" variable to your local Downloads directory path
 
 ### 3. Make the dlorg script executable by 
 ```bash 
@@ -18,7 +18,7 @@ chmod u+x dlorg
 
 ### 4. Create a symlink for easier changes and shorter paths to the service: 
 ```bash 
-ln -s “$PWD/dlorg” ~/.local/bin/dlorg
+ln -s "$PWD/dlorg" ~/.local/bin/dlorg
 ```
 
 ### 5. Create the systemd service 
